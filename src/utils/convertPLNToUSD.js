@@ -7,12 +7,11 @@ export const convertPLNToUSD = (PLN) => {
     return 'Error';
   }
 
-  let PLNtoUSD = null;
-  if (PLN <= 0) {
-    PLNtoUSD = 0;
-  } else {
+  let PLNtoUSD = 0;
+  if (PLN > 0) {
     PLNtoUSD = PLN / 3.5;
   }
+
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
