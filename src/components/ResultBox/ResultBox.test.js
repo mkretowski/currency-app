@@ -80,4 +80,25 @@ describe('Component ResultBox', () => {
       cleanup();
     }
   });
+  it('should render info "Wrong value" for negative numbers', () => {
+    const testCases = [
+      { amount: -100, from: 'USD', to: 'PLN' },
+      { amount: -200, from: 'PLN', to: 'USD' },
+      { amount: -300, from: 'PLN', to: 'PLN' },
+      { amount: -400, from: 'USD', to: 'USD' },
+    ];
+
+    for (const testObj of testCases) {
+      // render component
+      render(<ResultBox from={testObj.from} to={testObj.to} amount={testObj.amount} />);
+
+      // find output element
+      const output = screen.getByTestId('output');
+
+      // check if output is correct
+      expect(output).toHaveTextContent('Wrong value...');
+      // unmount component
+      cleanup();
+    }
+  });
 });

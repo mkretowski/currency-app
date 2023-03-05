@@ -6,17 +6,17 @@ const CurrencyBox = () => {
   const [data, setData] = useState({
     amount: 0,
     from: 'Zł',
-    to: '$'
+    to: '$',
   });
 
-  const handleDataChange = data => {
+  const handleDataChange = (data) => {
     setData(data);
-  }
+  };
 
   return (
     <main>
       <CurrencyForm action={handleDataChange} />
-      { data.amount ? <ResultBox {...data} /> : null }
+      {data.amount ? <ResultBox {...data} /> : null}
     </main>
   );
 };
