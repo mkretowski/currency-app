@@ -13,7 +13,7 @@ const ResultBox = ({ from, to, amount }) => {
   }, [from, to, amount]);
 
   const formattedAmount = useMemo(() => formatAmountInCurrency(amount, from), [amount, from]);
-  if (amount < 0 || typeof amount != 'number')
+  if (typeof amount != 'number' || amount < 0)
     return (
       <div className={styles.result} data-testid='output'>
         Wrong value...
